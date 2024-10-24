@@ -28,8 +28,8 @@ speed_x1=n1*a1*t**(n1-1)
 
 ########## AIRPLANE 2 ##########
 # Create an x array
-a2=400
-n2=2
+a2=1600/2**0.5
+n2=0.5
 x2=a2*t**n2 # [km]
 
 # Create a y array
@@ -176,9 +176,9 @@ plt.grid(True)
 
 # Subplot 2
 ax2=fig.add_subplot(gs[1,0],facecolor=(0.9,0.9,0.9))
-x_dist1,=ax2.plot([],[],'-r',linewidth=3,label='X = '+str(a1)+'*t^'+str(n1))
-x_dist2,=ax2.plot([],[],'-b',linewidth=3,label='X = '+str(a2)+'*t^'+str(n2))
-x_dist3,=ax2.plot([],[],'-g',linewidth=3,label='X = '+str(a3)+'*t^'+str(n3))
+x_dist1,=ax2.plot([],[],'-r',linewidth=3,label='X = '+str(int(a1))+'*t^'+str(round(n1,1)))
+x_dist2,=ax2.plot([],[],'-b',linewidth=3,label='X = '+str(int(a2))+'*t^'+str(round(n2,1)))
+x_dist3,=ax2.plot([],[],'-g',linewidth=3,label='X = '+str(int(a3))+'*t^'+str(round(n3,1)))
 plt.xlim(t[0],t[-1])
 plt.ylim(x1[0],x1[-1])
 plt.xticks(np.arange(t[0],t[-1]+dt,t[-1]/4))
@@ -191,9 +191,9 @@ plt.legend(loc='upper left',fontsize='x-large')
 
 # Subplot 3
 ax4=fig.add_subplot(gs[1,1],facecolor=(0.9,0.9,0.9))
-speed1,=ax4.plot([],[],'-r',linewidth=3,label='dX/dt = '+str(n1*a1)+'*t^('+str(n1-1)+')')
-speed2,=ax4.plot([],[],'-b',linewidth=3,label='dX/dt = '+str(n2*a2)+'*t^('+str(n2-1)+')')
-speed3,=ax4.plot([],[],'-g',linewidth=3,label='dX/dt = '+str(n3*a3)+'*t^('+str(n3-1)+')')
+speed1,=ax4.plot([],[],'-r',linewidth=3,label='dX/dt = '+str(int(n1*a1))+'*t^('+str(round(n1-1,1))+')')
+speed2,=ax4.plot([],[],'-b',linewidth=3,label='dX/dt = '+str(int(n2*a2))+'*t^('+str(round(n2-1,1))+')')
+speed3,=ax4.plot([],[],'-g',linewidth=3,label='dX/dt = '+str(int(n3*a3))+'*t^('+str(round(n3-1,1))+')')
 plt.xlim(t[0],t[-1])
 plt.ylim(x1[0],speed_x1[-1]*2)
 plt.xticks(np.arange(t[0],t[-1]+dt,t[-1]/4),size=10)
